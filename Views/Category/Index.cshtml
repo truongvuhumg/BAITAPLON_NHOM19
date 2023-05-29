@@ -1,0 +1,41 @@
+@model IEnumerable<QUANLYTHUVIEN.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Thể Loại</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+        <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CategoryID" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CategoryID" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CategoryID" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+@model IEnumerable<QUANLYTHUVIEN.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Quản Lý Sách</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamXuatBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nhaxuatban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+        <td>
+                @Html.DisplayFor(modelItem => item.BookID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamXuatBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nhaxuatban.NXBID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.AuthorID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BookID" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BookID" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BookID" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

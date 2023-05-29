@@ -1,0 +1,40 @@
+@model QUANLYTHUVIEN.Models.Phieumuonsach
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Thêm Phiếu Mượn sách</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Maphieu" class="control-label">MÃ Phiếu </label>
+                <input asp-for="Maphieu" class="form-control" />
+                <span asp-validation-for="Maphieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReaderName" class="control-label">MÃ Độc Giả</label>
+                <select asp-for="ReaderName" class ="form-control" asp-items="ViewBag.ReaderName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"> Người Lập Phiếu</label>
+                <select asp-for="EmployeeName" class ="form-control" asp-items="ViewBag.EmployeeName"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"  class="btn btn-primary" >Danh sách</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

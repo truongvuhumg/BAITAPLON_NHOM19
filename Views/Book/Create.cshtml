@@ -1,0 +1,53 @@
+@model QUANLYTHUVIEN.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Thêm Sách</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookID" class="control-label"> Mã sách</label>
+                <input asp-for="BookID" class="form-control" />
+                <span asp-validation-for="BookID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label">Tên Sách</label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamXuatBan" class="control-label">Năm Xuất Bản</label>
+                <input asp-for="NamXuatBan" class="form-control" />
+                <span asp-validation-for="NamXuatBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NXBID" class="control-label">Mã Xuất Bản</label>
+                <select asp-for="NXBID" class ="form-control" asp-items="ViewBag.NXBID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryID" class="control-label">Mã Thể Loại</label>
+                <select asp-for="CategoryID" class ="form-control" asp-items="ViewBag.CategoryID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorID" class="control-label">Mã Độc Giả</label>
+                <select asp-for="AuthorID" class ="form-control" asp-items="ViewBag.AuthorID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

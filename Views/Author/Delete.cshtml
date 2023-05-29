@@ -1,0 +1,25 @@
+@model QUANLYTHUVIEN.Models.Author
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Xóa Tác Giả</h1>
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AuthorID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index"  class="btn btn-primary" >Danh Sách</a>
+    </form>
+</div>

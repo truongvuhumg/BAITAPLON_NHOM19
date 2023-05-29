@@ -1,0 +1,41 @@
+@model IEnumerable<QUANLYTHUVIEN.Models.Author>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tác Giả</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" >Thêm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AuthorID" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AuthorID" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AuthorID" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+@model QUANLYTHUVIEN.Models.Chitietmuontra
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Trả sách</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phieumuonsach)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phieumuonsach.Maphieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book.BookID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ngaymuon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ngaymuon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ngaytra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ngaytra)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Maphieu" />
+        <input type="submit" value="Trả Sách" class="btn btn-danger" /> |
+        <a asp-action="Index"  class="btn btn-primary">Danh Sach</a>
+    </form>
+</div>

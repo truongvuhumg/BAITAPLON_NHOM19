@@ -1,0 +1,41 @@
+@model IEnumerable<QUANLYTHUVIEN.Models.Phieumuonsach>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Phiếu Mượn Sách</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Tạo Phiếu mượn sách</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Readers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Readers.ReaderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Maphieu" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Maphieu" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Maphieu" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

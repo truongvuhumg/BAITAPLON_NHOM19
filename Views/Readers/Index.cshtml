@@ -1,0 +1,59 @@
+@model IEnumerable<QUANLYTHUVIEN.Models.Readers>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cập nhập thông tin độc giả</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+        <th>
+                @Html.DisplayNameFor(model => model.ReaderID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReaderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ngaysinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+        <td>
+                @Html.DisplayFor(modelItem => item.ReaderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReaderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaysinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReaderID" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReaderID" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReaderID" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

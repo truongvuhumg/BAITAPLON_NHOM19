@@ -1,0 +1,53 @@
+@model IEnumerable<QUANLYTHUVIEN.Models.Nhaxuatban>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cập Nhập Nhà Xuất Bản</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NXBID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NXBName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NXBAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+        <td>
+                @Html.DisplayFor(modelItem => item.NXBID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NXBName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NXBAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NXBID" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NXBID" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NXBID" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
